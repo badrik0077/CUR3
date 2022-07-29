@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, abort
 
 from app.DAO.post_dao import PostDAO
 from app.DAO.comments_dao import CommentsDAO
@@ -19,5 +19,13 @@ def all_posts_page():
 @post_blueprint.get('/post/<int:pk>')
 def one_posts_page(pk):
     one_post = posts_dao.get_by_pk(pk)
-    comments = comments_dao.get_comments_by_post_id(pk)
-    return render_template('post.html', post=one_post, comment=comments)
+    comments = comments_dao.get_comments_by_post_id(post_id=pk)
+    if one_post is None:
+        abort(404)
+    return render_template('post.html', post=one_post, comments=comments, len_comments=len(comments))
+
+
+@post_blueprint.get('/user/<user_name>')
+def page_by_user_name(user_name):
+    posts = posts_dao.get_by_poster(user_name)
+    return render_template('user-feed.html', posts=posts, user_name=user_name)

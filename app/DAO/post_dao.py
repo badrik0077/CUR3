@@ -1,6 +1,3 @@
-import json
-from json import JSONDecodeError
-
 from app.DAO.common_data import CommonData
 from app.DAO.post import Post
 
