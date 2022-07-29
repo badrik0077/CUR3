@@ -26,12 +26,12 @@
   <main class="container">
 
   <div class="search">
-      <form action="/search" class="search__form">
+      <form action="/search/" class="search__form">
           <label>
-              <input type="search" class="search__input" placeholder="Поиск...">
+              <input type="search" class="search__input" placeholder="Поиск..." name="s" value="{{ query }}">
           </label>
       </form>
-    </div>
+  </div>
 
 {% for post in posts %}
     <section class="items">
