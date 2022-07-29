@@ -7,7 +7,7 @@ from app.views import post_blueprint
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
-# logging.basicConfig(filename='basic.log', level=logging.INFO)
+# logging.basicConfig(filename='basic.log', level=logging.ERROR)
 
 
 app.register_blueprint(post_blueprint)
