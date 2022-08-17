@@ -15,3 +15,15 @@ class Post:
     def __repr__(self):
         return f"Post({self.pk}, {self.poster_name}, {self.poster_avatar}, {self.pic}, {self.content}," \
                f"{self.views_count}, {self.likes_count})"
+
+    def post_dict(self):
+        dict_post = {
+            "pk": self.pk,
+            "poster_name": self.poster_name,
+            "poster_avatar": self.poster_avatar,
+            "pic": self.pic,
+            "content": self.content,
+            "views_count": self.views_count,
+            "likes_count": self.likes_count
+        }
+        return dict_post
