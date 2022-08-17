@@ -14,6 +14,8 @@ app.register_blueprint(post_blueprint)
 app.register_blueprint(api_blueprint, url_prefix='/api')
 
 
+
+
 @app.errorhandler(404)
 def page_error_404(error):
     return f"Такой страницы не существует {error}", 404
